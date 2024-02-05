@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+if ! [ -f "config/solid_queue.yml" ]; then
+  echo "Generate"
+  EDITOR=cat bin/rails credentials:edit
+fi
+
+if ! [ -f "config/database.yml" ]; then
+  echo "Copy database.yml"
+  cp config/database.yml.sample config/database.yml
+fi
+
+if ! [ -f "config/cable.yml" ]; then
+  echo "Copy cable.yml"
+  cp config/cable.yml.sample config/cable.yml
+fi
+
+if ! [ -f "config/solid_cache.yml" ]; then
+  echo "Copy solid_cache.yml"
+  cp config/solid_cache.yml.sample config/solid_cache.yml
+fi
+
+if ! [ -f "config/solid_queue.yml" ]; then
+  echo "Copy solid_queue.yml"
+  cp config/solid_queue.yml.sample config/solid_queue.yml
+fi

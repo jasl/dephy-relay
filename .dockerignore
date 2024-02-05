@@ -10,7 +10,7 @@
 # Ignore all environment files (except templates).
 /.env*
 !/.env*.erb
-!/.env*.example
+!/.env*.sample
 
 # Ignore all default key files.
 /config/master.key
@@ -21,8 +21,8 @@
 # Ignore all config files
 /config/cable.yml
 /config/database.yml
-/config/mailer.yml
-/config/storage.yml
+/config/solid_cache.yml
+/config/solid_queue.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*

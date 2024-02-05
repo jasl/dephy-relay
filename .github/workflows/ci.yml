@@ -85,6 +85,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Prepare configs
+        run: bin/copy_configs
+
       - name: Run tests
         env:
           RAILS_ENV: test

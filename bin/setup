@@ -17,10 +17,24 @@ FileUtils.chdir APP_ROOT do
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
 
-  # puts "\n== Copying sample files =="
-  # unless File.exist?("config/database.yml")
-  #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
-  # end
+  puts "\n== Generating credentials =="
+  unless File.exist?("config/credentials.yml.enc")
+    system! "EDITOR=cat bin/rails credentials:edit"
+  end
+
+  puts "\n== Copying sample files =="
+  unless File.exist?("config/database.yml")
+    FileUtils.cp "config/database.yml.sample", "config/database.yml"
+  end
+  unless File.exist?("config/cable.yml")
+    FileUtils.cp "config/cable.yml.sample", "config/cable.yml"
+  end
+  unless File.exist?("config/solid_cache.yml")
+    FileUtils.cp "config/solid_cache.yml.sample", "config/solid_cache.yml"
+  end
+  unless File.exist?("config/solid_queue.yml")
+    FileUtils.cp "config/solid_queue.yml.sample", "config/solid_queue.yml"
+  end
 
   puts "\n== Preparing database =="
   system! "bin/rails db:prepare"
