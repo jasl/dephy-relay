@@ -34,6 +34,10 @@ gem "geared_pagination"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
+gem "rbsecp256k1"
+
+gem "json_schemer"
+
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft", github: "rails/propshaft"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]

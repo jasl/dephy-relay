@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_02_05_194040) do
+ActiveRecord::Schema[7.2].define(version: 2024_02_06_100555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "uid", null: false
+    t.string "pubkey", null: false
+    t.integer "kind", null: false
+    t.jsonb "tags", default: [], array: true
+    t.string "content", null: false
+    t.string "sig", null: false
+    t.datetime "created_at", null: false
+    t.index ["pubkey"], name: "index_events_on_pubkey"
+    t.index ["uid"], name: "index_events_on_uid", unique: true
+  end
+
+  create_table "known_identities", force: :cascade do |t|
+    t.string "pubkey", null: false
+    t.datetime "created_at", null: false
+    t.index ["pubkey"], name: "index_known_identities_on_pubkey", unique: true
+  end
 
   create_table "solid_cache_entries", force: :cascade do |t|
     t.binary "key", null: false

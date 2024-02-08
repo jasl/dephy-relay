@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+alice:
+  # private_key: 588c098c2b802e54fcf0c97f5e53b790286cd5c2c6df97251680c40a395a26ab
+  public_key: c51143b0bdf813e057c17f708e50060a224f54ad4c9b92c33de9d303df11eddf
+
+bob:
+  # private_key: 8b4ba0dd0b0c3f3444bb4236ece6434881039f9f8062c7d0a88fdf7345ef1ab7
+  public_key: 6dfff46693b36563c56029b9d7aca6a277706c88a206ee34b109b65f4f21173a
+
+charlie:
+  # private_key: b04bfa0b9448a2ed9fba58f9cd0306ed53d0e572dba22377a0cc235fd18a749e
+  public_key: 359da2405d65bdbfd90beb4a2511de180004bb202ae6d3dbbccb0bc56f017975
+
+dave:
+  # private_key: 6f263d908b15e26b61f21351ae45519c5aabdca33067540fc7dc6e95324a662e
+  public_key: 0641c79835888318707fc80e472d7864af4862d7d18e270e7083d5b418efbd8d
+
+eve:
+  # private_key: 38dd3501f74dd4591762d8ba29de173dba0b002dd0da9434a2eee925c174d26c
+  public_key: e1afb926cdd7f686f414848cb059dd885899e9c51955e75e33c9af59e7d06916
+
+ferdie:
+  # private_key: c06fba8ce1585e80a1759fa7b62cc900b8b79724dd79c76c592afcd6867b31fa
+  public_key: 22536bb4bf29270c83955c4611513311295ab0f58fe087429e1b20a448610971
