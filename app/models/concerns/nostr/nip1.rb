@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Nostr
   module Nip1
     # AVAILABLE_FILTERS = SubscriptionQueryBuilder::AVAILABLE_FILTERS.map { |filter_name| /\A[a-zA-Z]\Z/.match?(filter_name) ? "##{filter_name}" : filter_name }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Nostr
   module Nip42
     extend ActiveSupport::Concern

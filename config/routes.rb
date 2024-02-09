@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :api do
+    root to: "home#index"
+
+    get "nostr" => "home#nostr"
+  end
+
+  root to: "home#index"
+
+  mount ActionCable.server => "/ws", internal: true, anchor: true
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # ActiveJob visualizer

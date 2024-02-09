@@ -2,6 +2,4 @@
 
 class Event < ApplicationRecord
   include Nostr::Nip1
-
-
 end
