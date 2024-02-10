@@ -7,7 +7,9 @@ DePHY Relay is a highly customized NoStr Relay implementation that designed for 
 
 ### It's only support selected NIPs
 
-TODO
+- NIP-1
+- NIP-11
+- NIP-46
 
 ### It's coupled with DePHY stacks
 

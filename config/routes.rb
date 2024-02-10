@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     get "nostr" => "home#nostr"
   end
 
-  root to: "home#index"
+  mount ActionCable.nostr_server => "/nostr", internal: true, anchor: true
 
-  mount ActionCable.server => "/ws", internal: true, anchor: true
+  root to: "home#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

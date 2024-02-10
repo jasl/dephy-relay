@@ -11,12 +11,7 @@ gem "rails", github: "rails/rails", branch: "main"
 gem "pg", "~> 1.1"
 
 # # Use the Puma web server [https://github.com/puma/puma]
-# gem "puma", ">= 5.0"
-
-gem "falcon"
-gem "async-websocket"
-
-# gem "faye-websocket"
+gem "puma", ">= 5.0"
 
 gem "rack-cors"
 
@@ -36,7 +31,7 @@ gem "mission_control-jobs", github: "basecamp/mission_control-jobs"
 gem "solid_cache", github: "rails/solid_cache"
 
 # Pagination
-gem "geared_pagination"
+gem "pagy"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

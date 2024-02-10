@@ -94,7 +94,7 @@ module Nostr
 
       def id_must_match_payload
         unless computed_uid == uid
-          errors.add(:id, "must match payload")
+          errors.add(:uid, "must match payload")
         end
       end
 

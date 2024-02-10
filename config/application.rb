@@ -20,6 +20,17 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ActionCable.module_eval do
+  module_function def nostr_server
+    @nostr_server ||=
+      begin
+        config = ActionCable::Server::Base.config.dup
+        config.connection_class = -> { "NostrCable::Connection".safe_constantize }
+        ActionCable::Server::Base.new config: config
+      end
+  end
+end
+
 module DephyRelay
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
