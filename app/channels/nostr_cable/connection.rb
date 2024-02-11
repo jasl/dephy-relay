@@ -2,13 +2,15 @@
 
 module NostrCable
   class Connection < ActionCable::Connection::Base
-    # identified_by :current_user
+    attr_reader :last_active_at, :session_id
 
-    attr_reader :last_active_at
+    identified_by :session_id
 
     def connect
+      @session_id = "WS-#{SecureRandom.hex(4)}"
       @last_active_at = @started_at
-      # self.current_user = find_verified_user
+
+      logger.add_tags @session_id
     end
 
     def disconnect
