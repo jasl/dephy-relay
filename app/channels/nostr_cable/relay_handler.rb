@@ -10,7 +10,7 @@ module NostrCable
       @connection = connection
     end
 
-    delegate :logger, to: :connection
+    delegate :logger, :session, :session_id, to: :connection, allow_nil: false
 
     def transmit(command, *args)
       connection.transmit [command, *args]

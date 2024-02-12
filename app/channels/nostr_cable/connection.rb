@@ -2,12 +2,13 @@
 
 module NostrCable
   class Connection < ActionCable::Connection::Base
-    attr_reader :last_active_at, :session_id
+    attr_reader :last_active_at, :session_id, :session
 
     identified_by :session_id
 
     def connect
       @session_id = "WS-#{SecureRandom.hex(4)}"
+      @session = NostrCable::Session.new(self, @session_id)
       @last_active_at = @started_at
 
       logger.add_tags @session_id
@@ -15,6 +16,7 @@ module NostrCable
 
     def disconnect
       # Any cleanup work needed when the cable connection is cut.
+      @session.destroy!
     end
 
     def close(reason:, message:)

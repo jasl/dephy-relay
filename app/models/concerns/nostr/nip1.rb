@@ -40,6 +40,8 @@ module Nostr
       validate :id_must_match_payload
       validate :sig_must_match_payload
 
+      after_create :broadcast_to_subscriptions
+
       def created_at=(value)
         value.is_a?(Numeric) ? super(Time.at(value)) : super(value)
       end
@@ -101,6 +103,26 @@ module Nostr
       def sig_must_match_payload
         unless schnorr_signature_verified?
           errors.add(:sig, "must match payload")
+        end
+      end
+
+      def subscriptions
+        ReqSubscription
+          .where("? = ANY (authors)", pubkey).or(ReqSubscription.where(authors: nil))
+          .where("? = ANY (kinds)", kind).or(ReqSubscription.where(kinds: nil))
+          .where("since < ?", created_at.to_i).or(ReqSubscription.where(since: nil))
+          .where("until > ?", created_at.to_i).or(ReqSubscription.where(until: nil))
+          .where("updated_at < ?", created_at)
+      end
+
+      def broadcast_to_subscriptions
+        subscriptions.each do |s|
+          ActionCable.nostr_server.broadcast "req_#{s.session_id}_#{s.subscription_id}",
+                                             [
+                                               "EVENT",
+                                               s.subscription_id,
+                                               raw_json
+                                             ]
         end
       end
     end
