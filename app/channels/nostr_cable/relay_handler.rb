@@ -2,15 +2,13 @@
 
 module NostrCable
   class RelayHandler
-    KNOWN_COMMANDS = %w[REQ CLOSE EVENT COUNT AUTH]
-
     attr_reader :connection
 
     def initialize(connection)
       @connection = connection
     end
 
-    delegate :logger, to: :connection
+    delegate :logger, :session, :session_id, to: :connection, allow_nil: false
 
     def transmit(command, *args)
       connection.transmit [command, *args]

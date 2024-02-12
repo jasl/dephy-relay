@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_02_06_100555) do
+ActiveRecord::Schema[7.2].define(version: 2024_02_11_215432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_02_06_100555) do
     t.string "pubkey", null: false
     t.datetime "created_at", null: false
     t.index ["pubkey"], name: "index_known_identities_on_pubkey", unique: true
+  end
+
+  create_table "req_subscriptions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.string "subscription_id", null: false
+    t.string "authors", array: true
+    t.integer "kinds", array: true
+    t.string "tags", array: true
+    t.integer "since"
+    t.integer "until"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "solid_cache_entries", force: :cascade do |t|

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/basecamp/mission_control-jobs.git
-  revision: 95e3d03fb6502045e154701028ebbfd40f947e1d
+  revision: 7f8edf73b09431f140abb43fb8240be30ec8d720
   specs:
     mission_control-jobs (0.1.1)
       importmap-rails
@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 0f9aaa5ca9b8421ebf42b3d7720632d4c1cae5fc
+  revision: 9940dc879d9bf5188f9237341329534437ee208b
   branch: main
   specs:
     actioncable (7.2.0.alpha)
@@ -263,7 +263,7 @@ GEM
       psych (>= 4.0.0)
     redis (5.1.0)
       redis-client (>= 0.17.0)
-    redis-client (0.19.1)
+    redis-client (0.20.0)
       connection_pool
     regexp_parser (2.9.0)
     reline (0.4.2)
