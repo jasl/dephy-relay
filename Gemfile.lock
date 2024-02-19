@@ -132,7 +132,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/solid_cache.git
-  revision: b0511417e6ceb7f0f36f5599b5bb89fa9374e1bd
+  revision: 34dcac971835175dd193cbd94f086d497d73d292
   specs:
     solid_cache (0.4.2)
       activejob (>= 7)
