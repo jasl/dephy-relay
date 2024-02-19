@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/basecamp/mission_control-jobs.git
-  revision: 7f8edf73b09431f140abb43fb8240be30ec8d720
+  revision: 9e07a5d262cfc837624ff84f9944a41fa61c1bb0
   specs:
     mission_control-jobs (0.1.1)
       importmap-rails
