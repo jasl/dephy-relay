@@ -228,7 +228,7 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
-    pg (1.5.4)
+    pg (1.5.6)
     pkg-config (1.5.6)
     psych (5.1.2)
       stringio
@@ -367,7 +367,7 @@ DEPENDENCIES
   json_schemer
   mission_control-jobs!
   pagy
-  pg (~> 1.1)
+  pg (~> 1.5)
   propshaft!
   puma (>= 5.0)
   rack-cors
